@@ -4,17 +4,20 @@ import java.util.Scanner;
 
 public class ToDoList{
 
-    private ArrayList<ToDoList_item> toDoLists = new ArrayList<>();
+    static int defaultItemsNum = 0;
+    private ArrayList<ToDoListItem> toDoLists = new ArrayList<>();
 
     public ToDoList() {
-        int default_itemNum = 2;                        // creates 2 default ToDoList Items when a ToDoList object is created.
-        for(int i = 1; i <= default_itemNum; i++){
-            this.toDoLists.add(new ToDoList_item("Sample Item "+ i));
+        while(defaultItemsNum < 2){
+
+            defaultItemsNum++;
+            this.toDoLists.add(new ToDoListItem(defaultItemsNum));             // creates 2 default ToDoList Items when a ToDoList object is created.
+
         }
     }
 
     public void printAllItems(){
-//        int itemNum = 1;
+
         System.out.println("\n\n TO-DO-LIST\n");
         System.out.println("Item No:\t To Do List Items");
         for ( int i = 0; i < toDoLists.size(); i++) {
@@ -23,10 +26,13 @@ public class ToDoList{
     }
     public void createItem(){
 
+        if(defaultItemsNum == 2){
+            toDoLists.clear();
+        }
         Scanner s = new Scanner(System.in);
         System.out.println("Enter Item Name ");
         String item_Name = s.nextLine();
-        toDoLists.add(new ToDoList_item(item_Name));
+        toDoLists.add(new ToDoListItem(item_Name));
 
     }
     public void viewItem(){
@@ -85,10 +91,10 @@ public class ToDoList{
                 //Calling private method to Delete Item
                 deleteItem(itemNum-1);              //itemNum -1 passes the Arraylist index of the selected Item
 
-            }else if (editOption ==2) {
+            }else if (editOption == 2) {
 
                 //Calling private method to modify Item (Update task status / add new Task)
-                modifyItem(itemNum-1);          //*
+                modifyItem(itemNum-1);              //itemNum -1 passes the Arraylist index of the selected Item
 
             }else {
                 System.out.println("Wrong Entry");

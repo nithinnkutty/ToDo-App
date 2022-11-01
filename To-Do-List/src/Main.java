@@ -32,10 +32,10 @@ public class Main {
                             newList.printAllItems();
                             continue;
                         } else if (input == 2) {
-                            newList.viewItem();                     //Method calls To Edit a to-Do List Item.
+                            newList.viewItem();                     //Method calls To Inspect a to-Do List Item.
                             continue;
                         } else if (input == 3) {
-                            newList.editItem();                     //Method calls To Inspect Item.
+                            newList.editItem();                     //Method calls To Edit Item.
                             newList.printAllItems();
                             continue;
                         } else if (input == 0) {

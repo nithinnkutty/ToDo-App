@@ -1,12 +1,21 @@
 import java.util.Scanner;
 
 class Task {
-     String task ="";
-     String status = "";
+     private String task;
+     private String status;
+
+    public Task() {
+        this.task   = "Default Task";
+        this.status = "Closed";
+    }
+//    public Task(int num) {
+//        setTask();
+//        setStatus();
+//    }
 
     public Task(String task) {
         this.task = task;
-        this.status = "closed";
+        setStatus();
     }
 
     public String getTask() {
@@ -21,22 +30,29 @@ class Task {
         Scanner s = new Scanner(System.in);
         System.out.println("Write task to add in the List");
         this.task = s.nextLine();
+
     }
 
     public void setStatus() {
-        System.out.println("Enter status of the task");
-        System.out.println("[1] In Progress \t\t[2] On Hold\t\t[3] Closed");
+
         Scanner s = new Scanner(System.in);
+
+        System.out.println("Enter status of the task ");
+        System.out.println("[1] Ongoing\t\t[2] On Hold\t\t[3] Closed");
 
         if (s.hasNextInt()) {
 
             int input = s.nextInt();
+
             if (input == 1) {
-                this.status = "In Progress";
+                this.status = "Ongoing";
+                System.out.println("Status Updated to Ongoing");
             } else if (input == 2) {
                 this.status = "On Hold";
+                System.out.println("Status Updated to On-Hold");
             } else if (input == 3) {
-                this.status = "Closed";
+                this.status = "Completed";
+                System.out.println("Status Updated to Completed");
             } else {
                 System.out.println("Wrong Entry");
             }
@@ -48,6 +64,6 @@ class Task {
 
     @Override
     public String toString() {
-        return  task  + " \t\tStatus = " + status ;
+        return  task +"\n\t\t\t\tStatus : "+ status  ;
     }
 }

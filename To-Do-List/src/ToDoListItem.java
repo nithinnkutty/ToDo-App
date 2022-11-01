@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 public class ToDoListItem {
 
-    static int defaultItems = 0;
     String item_Name ;
     ArrayList<Task> tasks              =   new ArrayList<>();
 
-    public ToDoListItem() {
-        //defaultItems++;
-        this.item_Name = "Default Item " + defaultItems;
+    public ToDoListItem( int def) {
+        // Create default to-do-list Item when todoList object is created
+        this.item_Name = "Default Item " + def;
         this.addDefaultTasks();
+
     }
 
     public ToDoListItem(String item_Name) {
@@ -30,7 +30,7 @@ public class ToDoListItem {
     public void addTasks(){
         Scanner s = new Scanner(System.in);
 
-        System.out.println("Add tasks to the List");
+        System.out.println("Add tasks to the list : "+ item_Name);
 
         while(true){
 
@@ -40,16 +40,19 @@ public class ToDoListItem {
             task.setStatus();
             tasks.add(task);
 
-            System.out.println("Press [0] to Continue adding tasks OR [1] to Finish");
+            System.out.println("Press [0] To continue adding tasks \tOR\t [1] to Finish");
             if(s.hasNextInt()){
+                int input = s.nextInt();
 
-                if(s.nextInt()==0){
+                if(input == 0){
                     continue;
-                } else if (s.nextInt()==1) {
+                } else if (input == 1) {
+                    System.out.println("Added "+tasks.size()+" tasks to list :"+ item_Name);
                     break;
                 } else{
                     System.out.println("Wrong Selection");
                 }
+
             }else {
                 System.out.println("Wrong Selection");
             }
@@ -63,8 +66,8 @@ public class ToDoListItem {
 
 
     public void print_tasks(){
-        for (int i = 0; i < tasks.size(); i++) {
-            System.out.println("\t\t" + tasks.get(i).toString());
+        for (int i = 1; i <= tasks.size(); i++) {
+            System.out.println("\t\t" + i +" "+ tasks.get(i-1).toString());
         }
     }
 
