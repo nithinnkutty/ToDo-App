@@ -18,16 +18,19 @@ public class ToDoList{
 
     public void printAllItems(){
 
-        System.out.println("\n\n TO-DO-LIST\n");
-        System.out.println("Item No:\t To Do List Items");
+        System.out.println("\n\n *****TO-DO-LIST*****\n");
+        System.out.println("\t\tItem No:\t To Do List Items\t\t No: of tasks \t Completed tasks\n");
         for ( int i = 0; i < toDoLists.size(); i++) {
-            System.out.println( i+1 + "\t\t\t " + toDoLists.get(i).getItem_Name());
+            System.out.print( "\t\t"+ (i+1) + "\t\t\t " + toDoLists.get(i).getItem_Name());
+            System.out.print("\t\t\t " + toDoLists.get(i).tasks.size());
+            System.out.println("\t\t\t\t " + toDoLists.get(i).NoOfCmpltdTasks());
         }
     }
     public void createItem(){
 
         if(defaultItemsNum == 2){
             toDoLists.clear();
+            defaultItemsNum = 0;
         }
         Scanner s = new Scanner(System.in);
         System.out.println("Enter Item Name ");

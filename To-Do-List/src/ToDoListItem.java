@@ -1,4 +1,4 @@
-import java.nio.file.LinkPermission;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -109,5 +109,14 @@ public class ToDoListItem {
         }else {
             System.out.println("Wrong Entry");
         }
+    }
+    public int NoOfCmpltdTasks(){
+        int count = 0;
+        for(int i=0; i< tasks.size();i++){
+            if(tasks.get(i).getStatus().equals("Completed")){
+                count++;
+            }
+        }
+        return count;
     }
 }

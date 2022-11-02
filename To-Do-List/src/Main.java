@@ -15,10 +15,10 @@ public class Main {
 
                 //Displays menu to select options
                 System.out.println("\nSelect any option from Menu\n");
-                System.out.print("[1] Create");
-                System.out.print("\t\t[2] View");
-                System.out.print("\t\t[3] Edit");
-                System.out.print("\t\t[0] Terminate");
+                System.out.println("\t\tPress [1] : Create New To-Do-List item");
+                System.out.println("\t\tPress [2] : Inspect To-Do-List Item");
+                System.out.println("\t\tPress [3] : Edit To-Do-List Item");
+                System.out.println("\t\tPress [0] : Terminate Program");
                 System.out.println();
 
 
@@ -30,20 +30,20 @@ public class Main {
                         if (input == 1) {
                             newList.createItem();                  //Method calls To Create new to-Do List Item.
                             newList.printAllItems();
-                            continue;
+
                         } else if (input == 2) {
                             newList.viewItem();                     //Method calls To Inspect a to-Do List Item.
-                            continue;
+
                         } else if (input == 3) {
                             newList.editItem();                     //Method calls To Edit Item.
                             newList.printAllItems();
-                            continue;
+
                         } else if (input == 0) {
-                            System.out.println("Exiting from To-Do Lists");
+                            System.out.println("\n\t\tExiting from To-Do Lists");
                             break;
                         } else {
                             System.out.println("Wrong Selection");
-                            continue;
+
                         }
                     }
                 }else {
@@ -54,10 +54,10 @@ public class Main {
 
         }
         catch (Exception e){
-            System.out.println("Error...Please retry");
+            System.out.println("\n\t\tError...Please retry");
         }
         finally {
-            System.out.println("**************End***************");
+            System.out.println("\n**************End***************");
         }
 
     }
