@@ -15,9 +15,9 @@ public class Main {
 
                 //Displays menu to select options
                 System.out.println("\nSelect any option from Menu\n");
-                System.out.println("\t\tPress [1] : Create New To-Do-List item");
-                System.out.println("\t\tPress [2] : Inspect To-Do-List Item");
-                System.out.println("\t\tPress [3] : Edit To-Do-List Item");
+                System.out.println("\t\tPress [1] : Create New To-Do-List");
+                System.out.println("\t\tPress [2] : Inspect To-Do-List");
+                System.out.println("\t\tPress [3] : Edit To-Do-List");
                 System.out.println("\t\tPress [0] : Terminate Program");
                 System.out.println();
 
@@ -33,6 +33,7 @@ public class Main {
 
                         } else if (input == 2) {
                             newList.viewItem();                     //Method calls To Inspect a to-Do List Item.
+                            newList.printAllItems();
 
                         } else if (input == 3) {
                             newList.editItem();                     //Method calls To Edit Item.
@@ -57,7 +58,7 @@ public class Main {
             System.out.println("\n\t\tError...Please retry");
         }
         finally {
-            System.out.println("\n**************End***************");
+            System.out.println("\n\t***************End****************");
         }
 
     }

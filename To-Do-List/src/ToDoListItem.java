@@ -98,7 +98,7 @@ public class ToDoListItem {
                 if(s.hasNextInt()){
                     int input  = s.nextInt();
                     if(input <= tasks.size() && input != 0  ){
-                        tasks.get(input).setStatus();
+                        tasks.get(input-1).setStatus();
                     }
                 }
 
