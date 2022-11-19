@@ -1,38 +1,26 @@
 package uk.ac.cardiff.nithin;
 
 class ToDoItem {
-     private String task;
-     private ItemStatus status;
-    public ToDoItem(String task) {
-        this.task = task;
-        this.status = ItemStatus.OPEN;
+    private String itemDesc;
+    private ItemStatus itemStatus;
+
+    public ToDoItem(String itemDesc) {
+        this.itemDesc = itemDesc;
+        this.itemStatus = ItemStatus.OPEN;
     }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("ToDoItem{");
-        sb.append("task='").append(task).append('\'');
-        sb.append(", status='").append(status).append('\'');
-        sb.append('}');
-        return sb.toString();
+    public String getItemDesc() {
+        return itemDesc;
     }
 
-    public String getTask() {
-        return task;
+    public ItemStatus getItemStatus() {
+        return itemStatus;
     }
 
-    public void setTask(String task) {
-        this.task = task;
+    public void setItemStatus(ItemStatus itemStatus) {
+        this.itemStatus = itemStatus;
     }
 
-
-    public ItemStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(ItemStatus status) {
-        this.status = status;
-    }
     public enum ItemStatus {
         OPEN,
         COMPLETED;

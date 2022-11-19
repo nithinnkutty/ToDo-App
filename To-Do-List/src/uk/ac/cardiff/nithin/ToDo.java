@@ -1,15 +1,21 @@
 package uk.ac.cardiff.nithin;
 
 public interface ToDo {
-    void createToDo(ToDoList newList);
-    void deleteToDo(int listNum);
+    void createToDoList(String listName);
+
+    void deleteToDoList(int listNum);
+
+    String viewToDoList(int listNum);
+
+    void addToDoItem(int listNum, String taskItem);
+
+    void deleteToDoItem(int listNum, int itemNum);
+
+    void changeItemStatus(int listNum, int itemNum);
 
     boolean isValidList(int listNum);
 
-    void addToDoItem(int listNum, String taskItem);
-    void deleteToDoItem(int listNum, int itemNum);
-    void changeItemStatus(int listNum, int itemNum);
-
     boolean isValidItem(int listNum, int itemNum);
 
+    boolean isValidString(String name);
 }

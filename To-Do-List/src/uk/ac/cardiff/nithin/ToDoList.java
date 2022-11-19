@@ -4,8 +4,11 @@ import uk.ac.cardiff.nithin.ToDoItem.ItemStatus;
 
 import java.util.ArrayList;
 
-public class ToDoList{
-    private String listName ;
+/**
+ * Holds the todo items for each todoList Object
+ */
+public class ToDoList {
+    private String listName;
     private ArrayList<ToDoItem> toDoItems;
 
     public ToDoList(String listName) {
@@ -13,7 +16,7 @@ public class ToDoList{
         this.toDoItems = new ArrayList<>();
     }
 
-    public void addToDoItem(ToDoItem newItem){
+    public void addToDoItem(ToDoItem newItem) {
         this.toDoItems.add(newItem);
     }
 
@@ -21,42 +24,41 @@ public class ToDoList{
         this.toDoItems.remove(itemNum);
     }
 
-    public void changeItemStatus(int itemNum){
+    public void changeItemStatus(int itemNum) {
         ToDoItem todoItem = toDoItems.get(itemNum);
-        todoItem.setStatus(todoItem.getStatus() == ItemStatus.OPEN ? ItemStatus.COMPLETED : ItemStatus.OPEN);
-
-//        if(todoItem.getStatus() == ItemStatus.OPEN) {
-//            todoItem.setStatus(ItemStatus.COMPLETED);
-//        } else {
-//            todoItem.setStatus(ItemStatus.OPEN);
-//        }
+        todoItem.setItemStatus(todoItem.getItemStatus() == ItemStatus.OPEN ? ItemStatus.COMPLETED : ItemStatus.OPEN);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(".................................\n");
+        sb.append("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         sb.append(listName.toUpperCase());
-        sb.append("\n.................................\n");
-        if(toDoItems.size()>0) {
-            sb.append(" <<< Open Items >>>\n");
-            for (ToDoItem toDoItem : this.toDoItems) {
+        sb.append("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        if (toDoItems.size() > 0) {
+            sb.append("<<<<<<<<<<<< All Items >>>>>>>>>>>>\n");
+            int count = 1;
+            for (ToDoItem toDoItem : toDoItems) {
+                sb.append("\t " + count + "  ").append(toDoItem.getItemDesc()).append("\n");
+                count++;
+            }
+            sb.append("\n<<<<<<<<< Completed Items >>>>>>>>>\n");
+            count = 0;
+            for (ToDoItem toDoItem : toDoItems) {
+                if (toDoItem.getItemStatus() == ItemStatus.COMPLETED) {
+                    sb.append("\t").append(toDoItem.getItemDesc()).append("\n");
+                    count++;
+                }
+            }
+            if (count == 0) {
+                sb.append("No completed items yet\n");
+            }
 
-                if (toDoItem.getStatus() == ItemStatus.OPEN) {
-                    sb.append(toDoItem.getTask()).append("\n");
-                }
-            }
-            sb.append(" <<< Closed Items >>>\n");
-            for (ToDoItem toDoItem : this.toDoItems) {
-                int count = 0;
-                if (toDoItem.getStatus() == ItemStatus.COMPLETED) {
-                    sb.append(toDoItem.getTask()).append("\n");
-                }
-            }
-        }else {
+
+        } else {
             sb.append("No items added to this List\n");
         }
-        sb.append(".................................");
+        sb.append("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         return sb.toString();
     }
 
@@ -64,15 +66,8 @@ public class ToDoList{
         return listName;
     }
 
-    public void setListName(String listName) {
-        this.listName = listName;
-    }
-
     public ArrayList<ToDoItem> getToDoItems() {
         return toDoItems;
     }
 
-    public void setToDoItems(ArrayList<ToDoItem> toDoItems) {
-        this.toDoItems = toDoItems;
-    }
 }

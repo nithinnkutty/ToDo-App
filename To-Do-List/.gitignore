@@ -1,2 +1,4 @@
 .idea/.name
 /out/
+*.class
+menu/
