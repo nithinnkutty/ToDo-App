@@ -1,6 +1,6 @@
-package uk.ac.cardiff.nithin;
+package uk.ac.cardiff.ToDoApp.main;
 
-class ToDoItem {
+public class ToDoItem {
     private String itemDesc;
     private ItemStatus itemStatus;
 
@@ -25,5 +25,6 @@ class ToDoItem {
         OPEN,
         COMPLETED;
     }
+
 
 }

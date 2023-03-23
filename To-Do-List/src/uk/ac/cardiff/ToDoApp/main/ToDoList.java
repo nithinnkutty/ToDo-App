@@ -1,6 +1,6 @@
-package uk.ac.cardiff.nithin;
+package uk.ac.cardiff.ToDoApp.main;
 
-import uk.ac.cardiff.nithin.ToDoItem.ItemStatus;
+import uk.ac.cardiff.ToDoApp.main.ToDoItem.ItemStatus;
 
 import java.util.ArrayList;
 

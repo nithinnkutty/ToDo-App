@@ -1,4 +1,4 @@
-package uk.ac.cardiff.nithin;
+package uk.ac.cardiff.ToDoApp.main;
 
 import java.util.Scanner;
 
@@ -19,7 +19,7 @@ public class Runner {
         int input = 1;
         do {
             Utils.printExternalMenu();
-            try {
+//            try {
                 input = Integer.parseInt(scanner.nextLine());
                 switch (input) {
                     case 1:
@@ -30,7 +30,8 @@ public class Runner {
                         String listName = scanner.nextLine();
                         toDoApp.createToDoList(listName);
                         continueToAddItem(toDoApp.getToDoLists().size() - 1);
-                        System.out.println("Items in the list " + listName + ": " + toDoApp.getToDoLists().get(toDoApp.getToDoLists().size() - 1).getToDoItems().size());
+                        System.out.println("Items in the list " + listName + ": " +
+                                toDoApp.getToDoLists().get(toDoApp.getToDoLists().size() - 1).getToDoItems().size());
                         Utils.printAllToDoListNames(toDoApp);
                         break;
                     case 3:
@@ -55,12 +56,12 @@ public class Runner {
                         Utils.printInvalidMessage();
                 }
 
-            } catch (NumberFormatException e) {
-                Utils.printInvalidMessage();
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//            } catch (NumberFormatException e) {
+//                Utils.printInvalidMessage();
+//                e.printStackTrace();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
         } while (input != 0);
     }
 
@@ -148,6 +149,6 @@ public class Runner {
      * Retrieves the actual index of the selected list in the toDoLists arraylist from the user input
      */
     private static int retrieveListNumber() {
-        return Integer.parseInt(scanner.nextLine()) - 1;
+        return Integer.parseInt(scanner.nextLine());
     }
 }

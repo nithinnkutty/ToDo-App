@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-uk.ac.cardiff.nithin.ToDoAppRunner-Class: uk.ac.cardiff.nithin.ToDoAppRunner
-

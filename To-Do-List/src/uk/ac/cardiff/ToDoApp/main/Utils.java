@@ -1,4 +1,4 @@
-package uk.ac.cardiff.nithin;
+package uk.ac.cardiff.ToDoApp.main;
 
 public class Utils {
     public static void addDefaultEntries(ToDoApp toDoApp) {
